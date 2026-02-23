@@ -2,14 +2,14 @@
 
 import { useRef, useEffect, useCallback } from "react";
 
-const SPACING = 44;
-const BASE_RADIUS = 1.2;
-const GLOW_RADIUS = 3;
-const INFLUENCE = 150;
-const BASE_COLOR = [212, 197, 169] as const; // #D4C5A9
-const GLOW_COLOR = [197, 165, 114] as const; // #C5A572
-const BASE_ALPHA = 0.12;
-const GLOW_ALPHA = 0.5;
+const SPACING = 50;
+const BASE_RADIUS = 0.8;
+const GLOW_RADIUS = 1.8;
+const INFLUENCE = 100;
+const BASE_COLOR = [255, 255, 255] as const; // white dots on gold
+const GLOW_COLOR = [255, 255, 255] as const; // white glow
+const BASE_ALPHA = 0.04;
+const GLOW_ALPHA = 0.2;
 
 export default function FloatingSquares() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

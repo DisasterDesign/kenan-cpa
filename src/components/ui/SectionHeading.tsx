@@ -21,7 +21,7 @@ export default function SectionHeading({
         <span
           className={`inline-block text-sm font-medium px-4 py-1.5 rounded-full mb-4 ${
             light
-              ? "bg-button/10 text-button"
+              ? "bg-white/20 text-primary"
               : "bg-white/10 text-white"
           }`}
         >

@@ -89,8 +89,8 @@ export default function TetrisScene({ gameState }: TetrisSceneProps) {
         shadow-camera-bottom={-8}
         shadow-bias={-0.002}
       />
-      <directionalLight position={[-3, 4, -3]} intensity={0.7} color="#D4C5A9" />
-      <pointLight position={[0, -1, 5]} intensity={0.8} color="#C5A572" distance={15} />
+      <directionalLight position={[-3, 4, -3]} intensity={0.7} color="#ffffff" />
+      <pointLight position={[0, -1, 5]} intensity={0.8} color="#ffffff" distance={15} />
 
       <group position={[groupX, groupY, 0]} scale={groupScale}>
         <group ref={groupRef} rotation={[BASE_TILT_X, BASE_ROTATION_Y, BASE_TILT_Z]}>

@@ -17,14 +17,14 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-white">
+      <section className="pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
           <SectionHeading badge={faq.badge} title={faq.title} light />
         </div>
       </section>
 
       {/* FAQ Accordion */}
-      <section className="section-light py-16 md:py-24">
+      <section className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 md:px-8 lg:px-12">
           <div>
             {faq.items.map((item, i) => (
@@ -41,7 +41,7 @@ export default function FAQPage() {
       </section>
 
       {/* Forms */}
-      <section className="section-light py-16 md:py-24">
+      <section className="py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
           <SectionHeading
             badge="טפסים"
@@ -52,11 +52,11 @@ export default function FAQPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto">
             {faq.forms.taxForms.map((form, i) => (
               <FadeIn key={i} delay={i * 0.03}>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white shadow-md shadow-button/8 hover:shadow-lg hover:shadow-button/12 transition-all duration-300">
-                  <FileDown className="w-4 h-4 text-button flex-shrink-0" />
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-white shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300">
+                  <FileDown className="w-4 h-4 text-primary flex-shrink-0" />
                   <div className="min-w-0">
                     <span
-                      className="text-xs text-button/70 block"
+                      className="text-xs text-primary/50 block"
                       style={{ fontFamily: "var(--font-grotesk), sans-serif" }}
                     >
                       {form.code}
@@ -82,7 +82,7 @@ export default function FAQPage() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 rounded-xl bg-white shadow-md shadow-button/8 hover:shadow-lg hover:shadow-button/12 text-primary/80 hover:text-button transition-all duration-300"
+                    className="flex items-center gap-3 p-4 rounded-xl bg-white shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 text-primary/80 hover:text-white transition-all duration-300"
                   >
                     <ExternalLink className="w-4 h-4 flex-shrink-0" />
                     <span className="text-sm">{link.name}</span>

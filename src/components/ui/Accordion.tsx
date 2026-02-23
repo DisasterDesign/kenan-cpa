@@ -23,14 +23,14 @@ export default function Accordion({ question, answer, light = false }: Accordion
   return (
     <div
       className={`border-b transition-colors ${
-        light ? "border-accent/30" : "border-white/10"
+        light ? "border-white/20" : "border-white/10"
       }`}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full flex items-center justify-between py-5 text-right gap-4 transition-colors ${
           light
-            ? "text-primary hover:text-button"
+            ? "text-primary hover:text-white"
             : "text-white hover:text-accent"
         }`}
         aria-expanded={isOpen}
@@ -41,7 +41,7 @@ export default function Accordion({ question, answer, light = false }: Accordion
         <ChevronDown
           className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
-          } ${light ? "text-button" : "text-accent"}`}
+          } ${light ? "text-primary" : "text-accent"}`}
         />
       </button>
       <div

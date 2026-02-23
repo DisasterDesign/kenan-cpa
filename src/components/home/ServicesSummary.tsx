@@ -7,7 +7,7 @@ import {
   User,
   Landmark,
   Calculator,
-  Globe,
+  Shield,
   ArrowLeft,
 } from "lucide-react";
 import { siteContent } from "@/lib/content";
@@ -21,7 +21,7 @@ const iconMap: Record<string, any> = {
   User,
   Landmark,
   Calculator,
-  Globe,
+  Shield,
 };
 
 export default function ServicesSummary() {
@@ -43,10 +43,10 @@ export default function ServicesSummary() {
               <FadeIn key={i} delay={i * 0.08}>
                 <Link
                   href={item.href}
-                  className="block p-6 rounded-2xl bg-white shadow-md shadow-button/8 hover:shadow-lg hover:shadow-button/12 hover:-translate-y-1 transition-all duration-300 group"
+                  className="block p-6 rounded-2xl bg-white shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-button/10 flex items-center justify-center mb-4 group-hover:bg-button/15 transition-colors">
-                    <Icon className="w-6 h-6 text-button" />
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-bold text-primary mb-2">
                     {item.title}
@@ -54,7 +54,7 @@ export default function ServicesSummary() {
                   <p className="text-sm text-primary/70 leading-relaxed mb-4">
                     {item.description}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-button group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center gap-1 text-sm font-medium text-button group-hover:gap-2 group-hover:text-primary transition-all">
                     למידע נוסף
                     <ArrowLeft className="w-4 h-4" />
                   </span>

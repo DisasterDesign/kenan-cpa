@@ -34,7 +34,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 nav-bar transition-all duration-300 ${
         scrolled ? "scrolled shadow-lg" : ""
       }`}
-      style={{ borderBottom: scrolled ? "1px solid rgba(212,197,169,0.2)" : "none" }}
+      style={{ borderBottom: scrolled ? "1px solid rgba(35,31,32,0.08)" : "none" }}
     >
       <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -69,7 +69,7 @@ export default function Header() {
           <div className="flex items-center gap-2 md:gap-3">
             <a
               href={`tel:${business.phone}`}
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:brightness-125 text-white font-medium text-sm rounded-xl btn-interactive transition-all duration-300"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-white/90 text-primary font-medium text-sm rounded-xl btn-interactive transition-all duration-300"
             >
               <Phone className="w-4 h-4" />
               {nav.cta}
@@ -78,7 +78,7 @@ export default function Header() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg transition-colors text-button hover:bg-button/5"
+              className="lg:hidden p-2 rounded-lg transition-colors text-primary hover:bg-white/15"
               aria-label={isMenuOpen ? "סגור תפריט" : "פתח תפריט"}
               aria-expanded={isMenuOpen}
             >

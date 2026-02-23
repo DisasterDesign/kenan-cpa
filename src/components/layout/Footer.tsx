@@ -7,7 +7,7 @@ export default function Footer() {
   const { footer, business, faq } = siteContent;
 
   return (
-    <footer className="bg-white text-primary/80 border-t border-accent/30">
+    <footer className="text-primary/80 border-t border-white/20">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         {/* Main Footer */}
         <div className="py-12 md:py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
@@ -37,7 +37,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-primary/60 hover:text-button transition-colors"
+                    className="text-sm text-primary/60 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-primary/60 hover:text-button transition-colors"
+                    className="text-sm text-primary/60 hover:text-white transition-colors"
                   >
                     {link.name}
                   </a>
@@ -74,27 +74,27 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3.5">
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-button mt-0.5 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <a
                   href={`tel:${business.phone}`}
-                  className="text-sm text-primary/60 hover:text-button transition-colors"
+                  className="text-sm text-primary/60 hover:text-white transition-colors"
                   style={{ fontFamily: "var(--font-grotesk), sans-serif" }}
                 >
                   {business.phone}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-button mt-0.5 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <a
                   href={`mailto:${business.email}`}
-                  className="text-sm text-primary/60 hover:text-button transition-colors"
+                  className="text-sm text-primary/60 hover:text-white transition-colors"
                   style={{ fontFamily: "var(--font-grotesk), sans-serif", direction: "ltr" }}
                 >
                   {business.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-button mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-primary/60">
                   {business.address}
                 </span>
@@ -104,8 +104,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-accent/30">
-          <p className="text-center text-sm text-primary/40">
+        <div className="py-6 border-t border-white/20">
+          <p className="text-center text-sm text-primary/50">
             {footer.copyright}
           </p>
         </div>
