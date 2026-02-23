@@ -1,16 +1,16 @@
 export const COLORS = {
-  primary: "#040F33",
+  primary: "#231F20",
   bg: "#FFFFFF",
-  accent: "#97A9CA",
-  button: "#224988",
+  accent: "#D4C5A9",
+  button: "#C5A572",
   tetris: {
-    I: "#224988",
-    O: "#224988",
+    I: "#C5A572",
+    O: "#C5A572",
     T: "#FFFFFF",
-    S: "#224988",
-    Z: "#224988",
-    J: "#224988",
-    L: "#224988",
+    S: "#C5A572",
+    Z: "#C5A572",
+    J: "#C5A572",
+    L: "#C5A572",
   },
 } as const;
 

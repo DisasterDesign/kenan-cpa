@@ -1,13 +1,13 @@
 import type { PieceType, Position } from "./tetris-types";
 
 export const PIECE_COLORS: Record<PieceType, string> = {
-  I: "#224988",
-  O: "#224988",
+  I: "#C5A572",
+  O: "#C5A572",
   T: "#FFFFFF",
-  S: "#224988",
-  Z: "#224988",
-  J: "#224988",
-  L: "#224988",
+  S: "#C5A572",
+  Z: "#C5A572",
+  J: "#C5A572",
+  L: "#C5A572",
 };
 
 // Each piece has an array of rotations, each rotation is an array of block positions

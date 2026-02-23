@@ -73,7 +73,7 @@ export default function HeroSection() {
         </div>
 
         {/* 3D Tetris — inline on mobile, below text */}
-        <div className="lg:hidden relative w-full h-[300px] -mb-4" aria-hidden="true">
+        <div className="lg:hidden relative w-full h-[450px] -mb-4" aria-hidden="true">
           <TetrisCanvas />
         </div>
 

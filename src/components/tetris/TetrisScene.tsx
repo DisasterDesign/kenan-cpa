@@ -26,9 +26,9 @@ export default function TetrisScene({ gameState }: TetrisSceneProps) {
   const isTablet = size.width >= 768 && size.width < 1024;
 
   // Responsive positioning
-  const groupX = isMobile ? -1.5 : isTablet ? -2 : -3.1;
-  const groupY = isMobile ? 0 : isTablet ? -0.8 : -1.3;
-  const groupScale = isMobile ? 0.45 : isTablet ? 0.55 : 0.65;
+  const groupX = isMobile ? -1.8 : isTablet ? -2 : -3.1;
+  const groupY = isMobile ? -0.5 : isTablet ? -0.8 : -1.3;
+  const groupScale = isMobile ? 0.7 : isTablet ? 0.55 : 0.65;
 
   // Enable shadow maps on the renderer
   useEffect(() => {
@@ -89,8 +89,8 @@ export default function TetrisScene({ gameState }: TetrisSceneProps) {
         shadow-camera-bottom={-8}
         shadow-bias={-0.002}
       />
-      <directionalLight position={[-3, 4, -3]} intensity={0.7} color="#97A9CA" />
-      <pointLight position={[0, -1, 5]} intensity={0.8} color="#224988" distance={15} />
+      <directionalLight position={[-3, 4, -3]} intensity={0.7} color="#D4C5A9" />
+      <pointLight position={[0, -1, 5]} intensity={0.8} color="#C5A572" distance={15} />
 
       <group position={[groupX, groupY, 0]} scale={groupScale}>
         <group ref={groupRef} rotation={[BASE_TILT_X, BASE_ROTATION_Y, BASE_TILT_Z]}>

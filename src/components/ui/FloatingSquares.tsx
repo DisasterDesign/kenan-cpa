@@ -6,8 +6,8 @@ const SPACING = 44;
 const BASE_RADIUS = 1.2;
 const GLOW_RADIUS = 3;
 const INFLUENCE = 150;
-const BASE_COLOR = [151, 169, 202] as const; // #97A9CA
-const GLOW_COLOR = [34, 73, 136] as const;   // #224988
+const BASE_COLOR = [212, 197, 169] as const; // #D4C5A9
+const GLOW_COLOR = [197, 165, 114] as const; // #C5A572
 const BASE_ALPHA = 0.12;
 const GLOW_ALPHA = 0.5;
 

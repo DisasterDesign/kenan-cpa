@@ -34,7 +34,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 nav-bar transition-all duration-300 ${
         scrolled ? "scrolled shadow-lg" : ""
       }`}
-      style={{ borderBottom: scrolled ? "1px solid rgba(151,169,202,0.2)" : "none" }}
+      style={{ borderBottom: scrolled ? "1px solid rgba(212,197,169,0.2)" : "none" }}
     >
       <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -93,7 +93,7 @@ export default function Header() {
         <div
           className="lg:hidden fixed inset-0 top-16 z-40"
           style={{
-            background: "rgba(4, 15, 51, 0.97)",
+            background: "rgba(35, 31, 32, 0.97)",
             backdropFilter: "blur(16px)",
             animation: "menuFadeIn 0.25s ease-out",
           }}
