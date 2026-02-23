@@ -57,37 +57,53 @@ export default function ContactPage() {
                   השאירו פרטים
                 </h3>
                 <div className="space-y-4">
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder={contact.form.namePlaceholder}
-                    className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
-                  />
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={contact.form.emailPlaceholder}
-                    className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
-                    dir="ltr"
-                  />
-                  <input
-                    type="text"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                    placeholder={contact.form.subjectPlaceholder}
-                    className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
-                  />
-                  <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder={contact.form.messagePlaceholder}
-                    rows={5}
-                    className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none outline-none"
-                  />
+                  <div>
+                    <label htmlFor="contact-name" className="sr-only">{contact.form.namePlaceholder}</label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder={contact.form.namePlaceholder}
+                      className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className="sr-only">{contact.form.emailPlaceholder}</label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={contact.form.emailPlaceholder}
+                      className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
+                      dir="ltr"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-subject" className="sr-only">{contact.form.subjectPlaceholder}</label>
+                    <input
+                      id="contact-subject"
+                      type="text"
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                      placeholder={contact.form.subjectPlaceholder}
+                      className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-message" className="sr-only">{contact.form.messagePlaceholder}</label>
+                    <textarea
+                      id="contact-message"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder={contact.form.messagePlaceholder}
+                      rows={5}
+                      className="w-full px-4 py-3 bg-white border border-primary/15 rounded-xl text-primary placeholder-primary/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none outline-none"
+                    />
+                  </div>
                   <button
                     type="submit"
                     className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-primary font-bold rounded-xl btn-interactive transition-all duration-300 border border-primary/10"

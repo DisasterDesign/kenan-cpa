@@ -19,7 +19,7 @@ export default function TetrisCanvas() {
     const unsubscribe = engine.subscribe(setGameState);
 
     // Start auto-play loop
-    intervalRef.current = setInterval(() => engine.tick(), 600);
+    intervalRef.current = setInterval(() => engine.tick(), 400);
 
     // Pause when off-screen
     const container = containerRef.current;
@@ -28,7 +28,7 @@ export default function TetrisCanvas() {
         ([entry]) => {
           if (entry.isIntersecting) {
             if (!intervalRef.current) {
-              intervalRef.current = setInterval(() => engine.tick(), 600);
+              intervalRef.current = setInterval(() => engine.tick(), 400);
             }
           } else {
             if (intervalRef.current) {
@@ -57,7 +57,7 @@ export default function TetrisCanvas() {
   return (
     <div ref={containerRef} className="absolute inset-0">
       <Canvas
-        camera={{ position: [0, 3, 8], fov: 45 }}
+        camera={{ position: [0, 1, 18], fov: 55 }}
         gl={{ alpha: true, antialias: true, powerPreference: "default" }}
         shadows
         dpr={[1, 1.5]}

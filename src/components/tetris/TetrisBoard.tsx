@@ -5,8 +5,8 @@ import { getBlocks } from "@/lib/tetris-pieces";
 import { PIECE_COLORS } from "@/lib/tetris-pieces";
 import TetrisBlock from "./TetrisBlock";
 
-const COLS = 5;
-const ROWS = 3;
+const COLS = 15;
+const ROWS = 10;
 
 interface TetrisBoardProps {
   gameState: GameState;

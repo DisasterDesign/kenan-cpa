@@ -2,11 +2,11 @@ import type { PieceType, Position } from "./tetris-types";
 
 export const PIECE_COLORS: Record<PieceType, string> = {
   I: "#231F20",
-  O: "#231F20",
-  T: "#FFFFFF",
+  O: "#FFFFFF",
+  T: "#3A3536",
   S: "#231F20",
-  Z: "#231F20",
-  J: "#231F20",
+  Z: "#FFFFFF",
+  J: "#3A3536",
   L: "#231F20",
 };
 

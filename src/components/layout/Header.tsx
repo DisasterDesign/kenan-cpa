@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { siteContent } from "@/lib/content";
 
@@ -12,6 +12,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { nav, business } = siteContent;
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,6 +29,44 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [isMenuOpen]);
+
+  // Escape key + focus trap for mobile menu
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    // Auto-focus first link
+    const firstLink = menuRef.current?.querySelector<HTMLElement>("a");
+    firstLink?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (e.key === "Tab" && menuRef.current) {
+        const focusable = menuRef.current.querySelectorAll<HTMLElement>(
+          'a, button, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen]);
 
   return (
@@ -77,6 +117,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button
+              ref={menuButtonRef}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2 rounded-lg transition-colors text-primary hover:bg-white/15"
               aria-label={isMenuOpen ? "סגור תפריט" : "פתח תפריט"}
@@ -91,6 +132,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div
+          ref={menuRef}
           className="lg:hidden fixed inset-0 top-16 z-40"
           style={{
             background: "rgba(35, 31, 32, 0.97)",

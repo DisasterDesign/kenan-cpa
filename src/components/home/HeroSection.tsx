@@ -16,68 +16,52 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden lg:min-h-screen"
+      className="relative overflow-hidden min-h-screen"
       style={{ background: "linear-gradient(180deg, #B48A34 0%, #D4C5A9 50%, #B48A34 100%)" }}
     >
-      {/* 3D Tetris — absolute background on desktop only */}
-      <div className="hidden lg:block absolute inset-0" aria-hidden="true">
+      {/* 3D Tetris — full-screen background */}
+      <div className="absolute inset-0 opacity-50" aria-hidden="true">
         <TetrisCanvas />
       </div>
 
       {/* Text content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 lg:min-h-screen flex flex-col">
-        <div className="flex-1 flex items-center pt-24 md:pt-28 pb-8">
-          <div className="lg:w-1/2 flex flex-col text-center lg:text-right py-8 lg:py-0">
-            <FadeIn delay={0.3}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary mb-5 leading-tight">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 min-h-screen flex flex-col">
+        <div className="flex-1 flex items-center justify-center pt-24 md:pt-28 pb-8">
+          <div className="flex flex-col items-center text-center py-8 lg:py-0 max-w-3xl">
+            <FadeIn delay={0.2}>
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary mb-6 leading-tight whitespace-nowrap">
                 {hero.title}
               </h1>
             </FadeIn>
 
-            <FadeIn delay={0.6}>
-              <p className="text-base md:text-lg lg:text-xl text-primary/80 max-w-xl leading-relaxed whitespace-pre-line mb-8 lg:max-w-none">
-                {hero.subtitle}
+            <FadeIn delay={0.4}>
+              <p className="text-lg md:text-xl lg:text-2xl text-primary font-medium leading-relaxed mb-3">
+                {hero.tagline}
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.9}>
-              <div>
-                <a
-                  href={`tel:${business.phone}`}
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary font-bold text-lg rounded-xl btn-interactive transition-all duration-300 shadow-lg shadow-primary/15"
-                >
-                  <Phone className="w-5 h-5" />
-                  {hero.cta}
-                </a>
-              </div>
+            <FadeIn delay={0.6}>
+              <p className="text-base md:text-lg text-primary/70 leading-relaxed mb-6">
+                {hero.description}
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={0.8}>
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-8 leading-snug">
+                {hero.slogan}
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={1.0}>
+              <a
+                href={`tel:${business.phone}`}
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary font-bold text-lg rounded-xl btn-interactive transition-all duration-300 shadow-lg shadow-primary/15"
+              >
+                <Phone className="w-5 h-5" />
+                {hero.cta}
+              </a>
             </FadeIn>
           </div>
-        </div>
-
-        {/* 3D Tetris — inline on mobile, below text */}
-        <div className="lg:hidden relative w-full h-[450px] -mb-4" aria-hidden="true">
-          <TetrisCanvas />
-        </div>
-
-        {/* Stats Bar */}
-        <div className="relative w-full pb-4">
-          <FadeIn delay={1.2}>
-            <div className="mx-auto flex items-center justify-center gap-8 md:gap-12 py-4 px-6 rounded-2xl bg-white/90 backdrop-blur-sm shadow-lg shadow-primary/10">
-              {hero.stats.map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div
-                    className="text-2xl md:text-3xl font-bold text-primary"
-                    style={{ fontFamily: "var(--font-grotesk), sans-serif" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-xs md:text-sm text-primary/60 mt-1">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
         </div>
 
         {/* Scroll indicator */}

@@ -20,7 +20,7 @@ export default function TaxRightsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-3xl mx-auto">
           {taxRights.items.map((item, i) => (
             <FadeIn key={i} delay={i * 0.06}>
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-white shadow-md shadow-primary/10">
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 hover:-translate-y-1 transition-all duration-300">
                 <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-sm md:text-base text-primary/80 leading-relaxed">
                   {item}

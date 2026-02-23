@@ -49,7 +49,7 @@ export default function SelectedClientsSection() {
             const Icon = iconMap[item.icon] || Globe;
             return (
               <FadeIn key={i} delay={i * 0.05}>
-                <div className="flex flex-col items-center gap-3 p-5 rounded-xl bg-white shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300 text-center">
+                <div className="flex flex-col items-center gap-3 p-5 rounded-xl bg-white shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 hover:-translate-y-1 transition-all duration-300 text-center">
                   <div className="w-10 h-10 rounded-xl bg-button/10 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>

@@ -1,18 +1,8 @@
 import type { BoardCell, GameState, ActivePiece, PieceType, Position } from "./tetris-types";
-import { PIECE_COLORS, getBlocks } from "./tetris-pieces";
+import { PIECE_TYPES, PIECE_COLORS, getBlocks } from "./tetris-pieces";
 
-const ROWS = 3;
-const COLS = 5;
-// Pre-designed choreography based on Figma tiling.
-// 5 pieces fill the entire 5×4 board, then all rows clear at once.
-// Drop order is designed for gravity (bottom pieces first).
-const CHOREOGRAPHY: { type: PieceType; rotation: number; col: number }[] = [
-  { type: "L", rotation: 1, col: 0 },  // blue L on left (rows 1-3)
-  { type: "T", rotation: 2, col: 2 },  // blue T-down bottom-right (rows 2-3)
-  { type: "O", rotation: 0, col: 1 },  // orange O center (rows 1-2)
-  { type: "T", rotation: 3, col: 3 },  // blue T-left top-right (rows 0-2)
-  { type: "I", rotation: 0, col: 0 },  // blue I horizontal top (row 0)
-];
+const ROWS = 10;
+const COLS = 15;
 
 function createEmptyBoard(): BoardCell[][] {
   return Array.from({ length: ROWS }, () =>
@@ -24,13 +14,16 @@ function createEmptyBoard(): BoardCell[][] {
   );
 }
 
+function randomPieceType(): PieceType {
+  return PIECE_TYPES[Math.floor(Math.random() * PIECE_TYPES.length)];
+}
+
 export class TetrisEngine {
   private board: BoardCell[][];
   private activePiece: ActivePiece | null = null;
   private phase: "dropping" | "clearing" | "spawning" = "spawning";
   private clearedRows: number[] = [];
   private listeners: Set<(state: GameState) => void> = new Set();
-  private choreographyIndex = 0;
 
   constructor() {
     this.board = createEmptyBoard();
@@ -38,18 +31,12 @@ export class TetrisEngine {
   }
 
   private spawnPiece(): void {
-    // Loop choreography — reset board when starting over
-    if (this.choreographyIndex >= CHOREOGRAPHY.length) {
-      this.board = createEmptyBoard();
-      this.choreographyIndex = 0;
-      this.notify();
-    }
-
-    const move = CHOREOGRAPHY[this.choreographyIndex];
-    this.choreographyIndex++;
-
-    const { type, rotation, col } = move;
-    const startRow = -this.getPieceHeight(type, rotation);
+    const type = randomPieceType();
+    const rotation = Math.floor(Math.random() * 4);
+    const blocks = getBlocks(type, rotation);
+    const maxCol = Math.max(...blocks.map((b) => b.col));
+    const col = Math.floor(Math.random() * (COLS - maxCol));
+    const startRow = -(Math.max(...blocks.map((b) => b.row)) + 1);
 
     this.activePiece = {
       type,
@@ -59,11 +46,6 @@ export class TetrisEngine {
 
     this.phase = "dropping";
     this.notify();
-  }
-
-  private getPieceHeight(type: PieceType, rotation: number): number {
-    const blocks = getBlocks(type, rotation);
-    return Math.max(...blocks.map((b) => b.row)) + 1;
   }
 
   private getAbsoluteBlocks(piece: ActivePiece): Position[] {
@@ -122,7 +104,6 @@ export class TetrisEngine {
       this.clearedRows = fullRows;
       this.phase = "clearing";
 
-      // Mark rows as clearing
       for (const r of fullRows) {
         for (let c = 0; c < COLS; c++) {
           this.board[r][c].clearing = true;
@@ -130,14 +111,18 @@ export class TetrisEngine {
       }
       this.notify();
 
-      // After animation delay, remove rows and continue
       setTimeout(() => {
         this.removeRows(fullRows);
         this.clearedRows = [];
         this.phase = "spawning";
         this.spawnPiece();
-      }, 500);
+      }, 400);
     } else {
+      // Reset if board is getting too full
+      if (this.board[0].some((c) => c.filled) || this.board[1].some((c) => c.filled)) {
+        this.board = createEmptyBoard();
+        this.notify();
+      }
       this.phase = "spawning";
       this.spawnPiece();
     }
@@ -196,7 +181,6 @@ export class TetrisEngine {
     this.board = createEmptyBoard();
     this.activePiece = null;
     this.clearedRows = [];
-    this.choreographyIndex = 0;
     this.phase = "spawning";
     this.spawnPiece();
   }

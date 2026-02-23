@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface AccordionProps {
@@ -13,6 +13,9 @@ export default function Accordion({ question, answer, light = false }: Accordion
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const id = useId();
+  const buttonId = `${id}-button`;
+  const panelId = `${id}-panel`;
 
   useEffect(() => {
     if (contentRef.current) {
@@ -27,6 +30,7 @@ export default function Accordion({ question, answer, light = false }: Accordion
       }`}
     >
       <button
+        id={buttonId}
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full flex items-center justify-between py-5 text-right gap-4 transition-colors ${
           light
@@ -34,6 +38,7 @@ export default function Accordion({ question, answer, light = false }: Accordion
             : "text-white hover:text-accent"
         }`}
         aria-expanded={isOpen}
+        aria-controls={panelId}
       >
         <span className="text-base md:text-lg font-medium leading-relaxed">
           {question}
@@ -45,6 +50,9 @@ export default function Accordion({ question, answer, light = false }: Accordion
         />
       </button>
       <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
         style={{
           maxHeight: isOpen ? `${height}px` : "0px",
           overflow: "hidden",
