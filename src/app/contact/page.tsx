@@ -159,7 +159,7 @@ export default function ContactPage() {
               <FadeIn delay={0.3}>
                 <div className="rounded-2xl overflow-hidden shadow-md shadow-button/8 h-[300px]">
                   <iframe
-                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(contact.mapQuery)}&language=he`}
+                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&q=${encodeURIComponent(contact.mapQuery)}&language=he`}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
